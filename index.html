@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questionario</title>
+</head>
+<body>
+  <p>Reindirizzamento al questionario...</p>
+
+  <script>
+    const questionarioA = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=alXC9vvEsUqix54iDfEcQ_zTt5cAYc9Mjj893YqIZOlUQk1PNExQN0JYNEo2VDU2SEVYRUNLVkk5TC4u";
+    const questionarioB = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=alXC9vvEsUqix54iDfEcQ_zTt5cAYc9Mjj893YqIZOlUNElBNEpZNUZJTkNVVUJEOFVHOUxKNzhCNS4u";
+
+    // Mantiene l'assegnazione nello stesso browser
+    let gruppo = localStorage.getItem("gruppo_esperimento");
+
+    if (gruppo !== "A" && gruppo !== "B") {
+      gruppo = Math.random() < 0.5 ? "A" : "B";
+      localStorage.setItem("gruppo_esperimento", gruppo);
+    }
+
+    if (gruppo === "A") {
+      window.location.replace(questionarioA);
+    } else {
+      window.location.replace(questionarioB);
+    }
+  </script>
+</body>
+</html>
